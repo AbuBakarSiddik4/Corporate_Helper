@@ -1,18 +1,6 @@
 
 from django.forms import ModelForm
-from .models import Company,Employee,Device,DeviceLog
-
-class RegistrationFrom(ModelForm):
-    class Meta:
-        model = Company
-        fields = '__all__'
-
-class LoginForm(ModelForm):
-    class Meta:
-        model = Company
-        fields = '__all__'
-        exclude = ['name']
-
+from .models import Employee,Device,DeviceLog
 
 class CreateEmployeeForm(ModelForm):
     class Meta:
@@ -28,5 +16,5 @@ class CreateDeviceForm(ModelForm):
 
 class CreateDeviceLogForm(ModelForm):
     class Meta:
-        model = Device
+        model = DeviceLog
         fields = '__all__'

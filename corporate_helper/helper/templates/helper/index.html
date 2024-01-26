@@ -1,10 +1,30 @@
-{% extends 'main.html' %}
+{% extends 'main.html' %} {% block content %}
 
+<div>
+  <a href="add-employee"> Add a New Employee </a>
+  <a href="add-device-log">Store device Data </a>
 
-{% block content %}
+  <h1>Empoyee Tracks:</h1>
+  <table>
+    <th> Device </th>
+    <th> Employee </th>
+    <th> Received At </th>
+    <th> Return Back At </th>
+    <th> Given Time Condition</th>
+    <th> Return Time Condition</th>
+    {% for entry in device_log %}
+    <tr>
+      <td>{{ entry.device }}</td>
+      <td>{{ entry.employee }}</td>
+      <td>{{ entry.check_out}}</td>
+      <td>{{ entry.check_in }}</td>
+      <td>{{ entry.check_out_condition }}</td>
+      <td>{{ entry.check_in_condition }}</td>
+    </tr>
+    {% endfor %}
+  </table>
 
-
-<div>Inside Home</div>
-
+  <li>{{ entry }}</li>
+</div>
 
 {% endblock %}
