@@ -28,7 +28,7 @@ def loginPage(request):
         print('user' , user)
         if user is not None:
             login(request,user)
-            # return redirect('index')
+            return redirect('index')
         else:
             messages.error(request,"Username or Password Not Found")
     context = {'page':page}
@@ -55,8 +55,10 @@ def registrationPage(request):
     context = {}
     return render(request,'helper/login_register.html',context)
 
+@login_required(login_url='/login')
 def index(request):
-    device_log = DeviceLog.objects.all()
+    company = request.user.id
+    device_log = DeviceLog.objects.filter(company=company)
     context = {"device_log": device_log,}
     return render(request,'helper/index.html',context)
 
@@ -72,6 +74,21 @@ def addEmployee(request):
     context = {'form':form}
     return render(request,'helper/form.html',context)
 
+@login_required(login_url='/login')
+def allEmployee(request):
+    company = request.user.id
+    employees = Employee.objects.filter(company=company)
+    context = {'employees':employees}
+    return render(request,'helper/employees.html',context)
+
+def deleteEmployee(request,pk):
+    employee = Employee.objects.get(id=pk)
+    if request.method == 'POST':
+        employee.delete()
+        return redirect('index')
+    return render (request,'helper/delete.html',{'obj':employee})
+
+
 def addDevice(request):
     form = CreateDeviceForm()
     if request.method == 'POST':
@@ -81,8 +98,6 @@ def addDevice(request):
             return redirect('index')
     context = {'form':form}
     return render(request,'helper/form.html',context)
-
-
 
 def addDeviceLog(request):
     form = CreateDeviceLogForm()

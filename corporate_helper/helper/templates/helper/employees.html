@@ -1,0 +1,12 @@
+{% extends 'main.html' %} {% block content %}
+<style>
+</style>
+<div>
+  {% for employee in employees %}
+    <p>{{employee.id}}</p>
+    <p>{{employee.name}}</p>
+    <a href="/delete/{{employee.id}}">Delete Employee</a>
+  {% endfor %}
+</div>
+
+{% endblock %}

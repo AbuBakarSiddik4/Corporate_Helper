@@ -18,8 +18,9 @@ class Device(models.Model):
         return self.category
 
 class DeviceLog(models.Model):
+    company = models.ForeignKey(User, on_delete=models.CASCADE)
     device = models.ForeignKey(Device, on_delete=models.CASCADE)    
-    employee = models.ForeignKey(Employee, on_delete=models.DO_NOTHING)  
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)  
     givenDate = models.DateTimeField(auto_now=False, null=True)
     returnedDate = models.DateTimeField(auto_now=False, null=True)
     given_condition = models.CharField(max_length=100, default='Good')
