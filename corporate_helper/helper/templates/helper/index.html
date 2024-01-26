@@ -1,8 +1,27 @@
 {% extends 'main.html' %} {% block content %}
+<style>
+  table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #e9afaf;
+}
 
+th,
+td {
+  border: 1px solid #cf5c5c;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+</style>
 <div>
   <a href="add-employee"> Add a New Employee </a>
-  <a href="add-device-log">Store device Data </a>
+  <a href="add-device">Add a new device </a>
+  <a href="add-device-log">Store Device Delegate Data</a>
 
   <h1>Empoyee Tracks:</h1>
   <table>
@@ -16,15 +35,13 @@
     <tr>
       <td>{{ entry.device }}</td>
       <td>{{ entry.employee }}</td>
-      <td>{{ entry.check_out}}</td>
-      <td>{{ entry.check_in }}</td>
-      <td>{{ entry.check_out_condition }}</td>
-      <td>{{ entry.check_in_condition }}</td>
+      <td>{{ entry.givenDate }}</td>
+      <td>{{ entry.returnedDate }}</td>
+      <td>{{ entry.given_condition }}</td>
+      <td>{{ entry.returned_condition }}</td>
     </tr>
     {% endfor %}
   </table>
-
-  <li>{{ entry }}</li>
 </div>
 
 {% endblock %}

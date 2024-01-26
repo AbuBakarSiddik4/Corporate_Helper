@@ -20,9 +20,9 @@ class Device(models.Model):
 class DeviceLog(models.Model):
     device = models.ForeignKey(Device, on_delete=models.CASCADE)    
     employee = models.ForeignKey(Employee, on_delete=models.DO_NOTHING)  
-    check_out = models.DateTimeField(auto_now=False, null=True)
-    check_in = models.DateTimeField(auto_now=False, null=True)
-    check_out_condition = models.CharField(max_length=50)
-    check_in_condition = models.CharField(max_length=50)
+    givenDate = models.DateTimeField(auto_now=False, null=True)
+    returnedDate = models.DateTimeField(auto_now=False, null=True)
+    given_condition = models.CharField(max_length=100, default='Good')
+    returned_condition = models.CharField(max_length=100, default='Good')
     def __str__(self):
         return self.device.model   

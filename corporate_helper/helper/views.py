@@ -60,3 +60,36 @@ def index(request):
     context = {"device_log": device_log,}
     return render(request,'helper/index.html',context)
 
+def addEmployee(request):
+    form = CreateEmployeeForm()
+    if request.method == 'POST':
+        form = CreateEmployeeForm(request.POST)
+        if form.is_valid():
+            employee = form.save(commit=False)
+            employee.company = request.user
+            employee.save()
+            return redirect('index')
+    context = {'form':form}
+    return render(request,'helper/form.html',context)
+
+def addDevice(request):
+    form = CreateDeviceForm()
+    if request.method == 'POST':
+        form = CreateDeviceForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    context = {'form':form}
+    return render(request,'helper/form.html',context)
+
+
+
+def addDeviceLog(request):
+    form = CreateDeviceLogForm()
+    if request.method == 'POST':
+        form = CreateDeviceLogForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    context = {'form':form}
+    return render(request,'helper/form.html',context)

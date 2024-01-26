@@ -1,4 +1,5 @@
 
+from django import forms
 from django.forms import ModelForm
 from .models import Employee,Device,DeviceLog
 
@@ -18,3 +19,7 @@ class CreateDeviceLogForm(ModelForm):
     class Meta:
         model = DeviceLog
         fields = '__all__'
+        widgets = {
+            'given': forms.DateInput(attrs={'type': 'date'}),
+            'returned': forms.DateInput(attrs={'type': 'date'}),
+        }
