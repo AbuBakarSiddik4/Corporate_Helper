@@ -4,7 +4,7 @@ A web application to track the devices that were given to employees by company.
 
 ## Project Overview
 
-Thsi is a simple web application where compnay can create a account then add employees trhen device.Then Store all the device log data . Every Cmpany only see their data only not others.
+This is a simple web application where compnay can create a account then add employees then device.Then Store all the device log data . Every Cmpany only see their data only not others.
 
 ## Technologies
 
@@ -19,7 +19,7 @@ The following features are available in this web application:
 - Company can add devices
 - Company can add deviceslog
 - Company can remove any employee
-- data safty as no other than the compnay can see the data
+- Data safty as no other than the compnay can see the data
 
 ## Getting Started
 
