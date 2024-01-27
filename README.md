@@ -30,6 +30,16 @@ To get started with the Web Application, follow these steps:
 3. Run the server: `python manage.py runserver`
 4. Navigate to <http://localhost:8000/> in your web browser to access the application.
 
+## Screen Shots
+
+### Login Page
+
+![Login](screenshots/Login.png)
+
+### Home Page
+
+![Home](screenshots/Home.png)
+
 ## Contributing
 
 If you'd like to contribute to this web application, please follow these steps:
