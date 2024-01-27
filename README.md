@@ -34,11 +34,11 @@ To get started with the Web Application, follow these steps:
 
 ### Login Page
 
-![Login](screenshots/Login.png)
+![Login](Screenshots/Login.png)
 
 ### Home Page
 
-![Home](screenshots/Home.png)
+![Home](Screenshots/Home.png)
 
 ## Contributing
 
